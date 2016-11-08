@@ -62,18 +62,35 @@ template < class T >
 void BinarySearchTree<T>::remove(String* sk)
 {
    //DO THIS
-
-
-
+   root = removeItem(root, sk);
 }
 
 template < class T >
 TreeNode<T>* BinarySearchTree<T>::removeItem(TreeNode<T>* tNode, String* sk)
 {
    //DO THIS
-
-
-
+   if(tNode == NULL)
+	   return tNode; //Do nothing; item not found
+   T* node_items = tNode->getItem();
+   int comp = (*compare_keys) (sk, node_items);
+   
+   if(comp == 0)
+   {
+	   sze--;
+	   return removeNode(tNode);
+   }
+   else if(comp < 0)
+   {
+	   TreeNode<T>* subtree = removeItem(tNode->getLeft(), sk);
+	   tNode->setLeft(subtree);
+	   return tNode;
+   }
+   else
+   {
+	   TreeNode<T>* subtree = removeItem(tNode->getRight(), sk);
+	   tNode->setRight(subtree);
+	   return tNode;
+   }
 }
 
 template < class T >
@@ -99,11 +116,11 @@ TreeNode<T>* BinarySearchTree<T>::removeNode(TreeNode<T>* tNode)
    else 
    {
       //DO THIS
-
-
-
-
-
+	  T* replace = findLeftMost(tNode->getRight());
+	  tNode->setItem(replace);
+	  TreeNode<T>* subtree = removeLeftMost(tNode->getRight());
+	  tNode->setRight(subtree);
+	  return tNode;
    }
 }
 
@@ -111,22 +128,23 @@ template < class T >
 T* BinarySearchTree<T>::findLeftMost(TreeNode<T>* tNode)
 {
    //DO THIS (use a while loop)
-
-
-
-
-
+   while(tNode->getLeft() != NULL)
+	   tNode = tNode->getLeft();
+   return tNode->getItem();
 }
 
 template < class T >
 TreeNode<T>* BinarySearchTree<T>::removeLeftMost(TreeNode<T>* tNode)
 {
    //DO THIS (recursion)
-
-
-
-
-
+   if(tNode->getLeft == NULL)
+	   return tNode->getRight(); //Delete tNode
+   else
+   {
+	   TreeNode<T>* subtree = removeLeftMost(tNode->getLeft());
+	   tNode->setLeft(subtree);
+	   return tNode;
+   }
 }
 
 template < class T >
