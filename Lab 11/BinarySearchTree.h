@@ -152,7 +152,7 @@ T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
 
-
+	
 
 }
 
@@ -160,8 +160,18 @@ template < class T >
 T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
 {
    //DO THIS
+   
+   BinarySearchTree<CD>* tree = new BinarySearchTree<CD>(&CD::compare_items, &CD::compare_keys);
 
-
+	for(int i = 0; i < num_itemss; i++){
+		
+		tree -> insert(items[i]);
+		
+	}
+	
+	items = tree -> toArray();
+	
+	return items;
 
 }
 
