@@ -151,8 +151,26 @@ template < class T >
 T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
-
-	
+   
+   BinaryTreeIterator<CD>* iter = tree -> BinaryTreeIterator(root);
+   
+   while(iter->hasNext()){
+	   
+	   BinaryTreeIterator<CD>::setInorder();
+	   
+   }
+   
+   int num_items = sze;
+   
+   CD** array = new CD* [num_items];
+   
+   for(int i = 0; i < num_items; i++){
+	   
+	   array[i] = iter->next();
+	   
+   }
+   
+   return array;
 
 }
 
