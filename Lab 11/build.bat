@@ -18,3 +18,4 @@ set PROJECT_PATH=.
 ::mingw32-make DRIVE_LETTER="%DRIVE_LETTER%" CURRENT_DIR="%PROJECT_PATH%"
 g++ -I./CSC2110 -I./GUI -c BSTDriver.cpp
 g++ -L./CSC2110 -L./GUI -o BSTDriver.exe BSTDriver.o -lCSC2110 -lrandom -lGUI
+BSTDriver.exe
