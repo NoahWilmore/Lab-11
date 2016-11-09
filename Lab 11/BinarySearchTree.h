@@ -1,9 +1,20 @@
+/*
+	
+	name: Jenny Haggerty && Noah Wilmore
+	
+	date: 11/9
+	
+	discrition: to use tree sort to sort cds.
+	
+*/
+
 #if !defined (BINARYSEARCHTREE_H)
 #define BINARYSEARCHTREE_H
 
 #include "BinaryTreeIterator.h"
 #include "TreeNode.h"
 #include "Text.h"
+#include  <cstdlib>
 //#include "Line.h"
 //#include "Drawable.h"
 //#include "wx/wx.h"
@@ -63,6 +74,7 @@ void BinarySearchTree<T>::remove(String* sk)
 {
    //DO THIS
    root = removeItem(root, sk);
+   return;
 }
 
 template < class T >
@@ -70,7 +82,7 @@ TreeNode<T>* BinarySearchTree<T>::removeItem(TreeNode<T>* tNode, String* sk)
 {
    //DO THIS
    if(tNode == NULL)
-	   return tNode; //Do nothing; item not found
+	   return NULL; //Do nothing; item not found
    T* node_items = tNode->getItem();
    int comp = (*compare_keys) (sk, node_items);
    
@@ -152,6 +164,27 @@ T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
    
+<<<<<<< HEAD
+=======
+   BinaryTreeIterator<T>* iter = new BinaryTreeIterator<T>(root);
+   
+   iter -> setInorder();
+   
+   int num_items = sze;
+   
+   T** array = new T* [num_items];
+   
+   for(int i = 0; i < num_items; i++){
+	   
+	   array[i] = iter->next();
+	   
+   }
+   
+   delete iter;
+   
+   return array;
+
+>>>>>>> 5f7cbc9b3a87e8f91618cd3e07358930b2080365
 }
 
 template < class T >
@@ -159,6 +192,23 @@ T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (
 {
    //DO THIS
    
+<<<<<<< HEAD
+=======
+   BinarySearchTree<T>* tree = new BinarySearchTree<T>(comp_items, comp_keys);
+
+	for(int i = 0; i < num_itemss; i++){
+		
+		tree -> insert(items[i]);
+		
+	}
+	
+	items = tree -> toArray();
+	
+	delete tree;
+	
+	return items;
+
+>>>>>>> 5f7cbc9b3a87e8f91618cd3e07358930b2080365
 }
 
 template < class T >
