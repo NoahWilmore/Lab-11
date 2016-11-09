@@ -4,6 +4,7 @@
 #include "BinaryTreeIterator.h"
 #include "TreeNode.h"
 #include "Text.h"
+#include  <cstdlib>
 //#include "Line.h"
 //#include "Drawable.h"
 //#include "wx/wx.h"
@@ -152,11 +153,11 @@ T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
    
-   BinaryTreeIterator<CD>* iter = tree -> BinaryTreeIterator(root);
+   BinaryTreeIterator<CD>* iter = new BinaryTreeIterator<CD>(root);
    
    while(iter->hasNext()){
 	   
-	   BinaryTreeIterator<CD>::setInorder();
+	   iter -> setInorder();
 	   
    }
    
