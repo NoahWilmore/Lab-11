@@ -151,18 +151,14 @@ template < class T >
 T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
-
-
-
+   
 }
 
 template < class T >
 T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
 {
    //DO THIS
-
-
-
+   
 }
 
 template < class T >
