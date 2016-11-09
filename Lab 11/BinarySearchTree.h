@@ -1,3 +1,13 @@
+/*
+	
+	name: Jenny Haggerty && Noah Wilmore
+	
+	date: 11/9
+	
+	discrition: to use tree sort to sort cds.
+	
+*/
+
 #if !defined (BINARYSEARCHTREE_H)
 #define BINARYSEARCHTREE_H
 
@@ -64,6 +74,7 @@ void BinarySearchTree<T>::remove(String* sk)
 {
    //DO THIS
    root = removeItem(root, sk);
+   return;
 }
 
 template < class T >
@@ -71,7 +82,7 @@ TreeNode<T>* BinarySearchTree<T>::removeItem(TreeNode<T>* tNode, String* sk)
 {
    //DO THIS
    if(tNode == NULL)
-	   return tNode; //Do nothing; item not found
+	   return NULL; //Do nothing; item not found
    T* node_items = tNode->getItem();
    int comp = (*compare_keys) (sk, node_items);
    
@@ -153,23 +164,21 @@ T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
    
-   BinaryTreeIterator<CD>* iter = new BinaryTreeIterator<CD>(root);
+   BinaryTreeIterator<T>* iter = new BinaryTreeIterator<T>(root);
    
-   while(iter->hasNext()){
-	   
-	   iter -> setInorder();
-	   
-   }
+   iter -> setInorder();
    
    int num_items = sze;
    
-   CD** array = new CD* [num_items];
+   T** array = new T* [num_items];
    
    for(int i = 0; i < num_items; i++){
 	   
 	   array[i] = iter->next();
 	   
    }
+   
+   delete iter;
    
    return array;
 
@@ -180,7 +189,7 @@ T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (
 {
    //DO THIS
    
-   BinarySearchTree<CD>* tree = new BinarySearchTree<CD>(&CD::compare_items, &CD::compare_keys);
+   BinarySearchTree<T>* tree = new BinarySearchTree<T>(comp_items, comp_keys);
 
 	for(int i = 0; i < num_itemss; i++){
 		
@@ -189,6 +198,8 @@ T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (
 	}
 	
 	items = tree -> toArray();
+	
+	delete tree;
 	
 	return items;
 
