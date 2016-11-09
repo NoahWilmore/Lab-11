@@ -164,8 +164,8 @@ T** BinarySearchTree<T>::toArray()
 {
    //DO THIS
    
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
    BinaryTreeIterator<T>* iter = new BinaryTreeIterator<T>(root);
    
    iter -> setInorder();
@@ -184,7 +184,7 @@ T** BinarySearchTree<T>::toArray()
    
    return array;
 
->>>>>>> 5f7cbc9b3a87e8f91618cd3e07358930b2080365
+//>>>>>>> 5f7cbc9b3a87e8f91618cd3e07358930b2080365
 }
 
 template < class T >
@@ -192,8 +192,8 @@ T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (
 {
    //DO THIS
    
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
    BinarySearchTree<T>* tree = new BinarySearchTree<T>(comp_items, comp_keys);
 
 	for(int i = 0; i < num_itemss; i++){
@@ -208,7 +208,7 @@ T** BinarySearchTree<T>::treeSort(T** items, int num_itemss, int (*comp_items) (
 	
 	return items;
 
->>>>>>> 5f7cbc9b3a87e8f91618cd3e07358930b2080365
+//>>>>>>> 5f7cbc9b3a87e8f91618cd3e07358930b2080365
 }
 
 template < class T >
