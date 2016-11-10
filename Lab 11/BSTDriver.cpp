@@ -66,10 +66,6 @@ int main()
 		line.displayString();
    }	
    
-   
-   
-
-
    deleteCDs(cds);
    delete cds;
    return 0;
